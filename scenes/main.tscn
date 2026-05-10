@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://7rc5i3bksypk"]
+
+[ext_resource type="Script" uid="uid://dgeqshbwuhr8t" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b1oewakysksjr" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dphov7al4yyu2" path="res://scenes/gun/gun.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://onwqckexg2b0" path="res://scenes/boss.tscn" id="2_boss"]
+[ext_resource type="PackedScene" uid="uid://br6nyh1a0spob" path="res://scenes/zombie.tscn" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://erp82dubq1ct" path="res://assets/misc/Water.png" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://xhr3r6a32j7b" path="res://scenes/UI.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://cfd6enuxqc30k" path="res://assets/misc/Island.png" id="3_tefeu"]
+[ext_resource type="PackedScene" path="res://scenes/health_pack.tscn" id="4_hp"]
+[ext_resource type="PackedScene" path="res://scenes/ammo_pack.tscn" id="5_ammo"]
+[ext_resource type="PackedScene" uid="uid://dxr8j32k0gok4" path="res://scenes/gun/machine_gun.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://bsh0fg03wk4s7" path="res://scenes/gun/smg.tscn" id="9_85g3d"]
+
+[node name="Main" type="Node2D" unique_id=1303938007]
+script = ExtResource("1_jyhfs")
+zombie_scene = ExtResource("2_tbgi4")
+boss_scene = ExtResource("2_boss")
+hp_scene = ExtResource("4_hp")
+ammo_scene = ExtResource("5_ammo")
+
+[node name="Water" type="Sprite2D" parent="." unique_id=1222771377]
+scale = Vector2(10, 10)
+texture = ExtResource("3_o6xl0")
+
+[node name="Island" type="Sprite2D" parent="." unique_id=1306293363]
+position = Vector2(4, 13)
+scale = Vector2(5, 5)
+texture = ExtResource("3_tefeu")
+
+[node name="gun" parent="." unique_id=404239249 instance=ExtResource("2_0wfyh")]
+position = Vector2(66, 0)
+collision_layer = 4
+collision_mask = 1
+fire_rate = 1.0
+fire_type = "single"
+
+[node name="player" parent="." unique_id=785669055 instance=ExtResource("1_o5qli")]
+
+[node name="UI" parent="." unique_id=408057264 instance=ExtResource("3_sugp2")]
+
+[node name="machine_gun" parent="." unique_id=2122305634 instance=ExtResource("8_tipki")]
+position = Vector2(34, 41)
+
+[node name="smg" parent="." unique_id=697395767 instance=ExtResource("9_85g3d")]
+position = Vector2(-21, 36)
+
+[node name="ammo_pack" parent="." unique_id=815725388 instance=ExtResource("5_ammo")]
+position = Vector2(320, 370)

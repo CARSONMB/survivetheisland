@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://onwqckexg2b0"]
+
+[ext_resource type="Script" uid="uid://c66g56vnrtnkf" path="res://scripts/zombie.gd" id="1_1vlb3"]
+[ext_resource type="Texture2D" uid="uid://thp0h8qf8eoj" path="res://assets/zombie/Zombie.png" id="2_httt1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_boss"]
+radius = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp_red"]
+bg_color = Color(0.85, 0.2, 0.2, 1)
+
+[node name="boss" type="CharacterBody2D" unique_id=795724993 groups=["enemy"]]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_1vlb3")
+speed = 70
+hp = 60
+max_hp = 60
+damage = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1698701440]
+texture = ExtResource("2_httt1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=75085997]
+shape = SubResource("CircleShape2D_boss")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=745347438]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1336457065]
+shape = SubResource("CircleShape2D_boss")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=78967407]
+offset_left = -20.0
+offset_top = 22.0
+offset_right = 20.0
+offset_bottom = 30.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp_red")
+max_value = 60.0
+value = 60.0
+show_percentage = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

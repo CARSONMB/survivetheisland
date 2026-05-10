@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dxr8j32k0gok4"]
+
+[ext_resource type="PackedScene" uid="uid://dphov7al4yyu2" path="res://scenes/gun/gun.tscn" id="1_mohmt"]
+[ext_resource type="Texture2D" uid="uid://cw7urylitn56v" path="res://assets/items/guns/Machine-Gun.png" id="2_62dgl"]
+
+[node name="machine_gun" unique_id=697395767 instance=ExtResource("1_mohmt")]
+weapon_icon_texture = ExtResource("2_62dgl")
+fire_rate = 0.01
+
+[node name="Sprite2D" parent="." index="0" unique_id=2064869807]
+texture = ExtResource("2_62dgl")

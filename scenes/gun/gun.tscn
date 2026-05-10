@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dphov7al4yyu2"]
+
+[ext_resource type="Script" uid="uid://cintoajniasc8" path="res://scripts/gun.gd" id="1_x77fm"]
+[ext_resource type="PackedScene" uid="uid://lk285xut5m3t" path="res://scenes/bullet.tscn" id="2_gp1hk"]
+[ext_resource type="Texture2D" uid="uid://ctbhd56hfhty2" path="res://assets/items/guns/Default-Gun.png" id="2_og67c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gp1hk"]
+radius = 8.0
+
+[node name="gun" type="StaticBody2D" unique_id=697395767 groups=["gun"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_x77fm")
+weapon_icon_texture = ExtResource("2_og67c")
+bullet_scene = ExtResource("2_gp1hk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2064869807]
+rotation = 1.5707964
+texture = ExtResource("2_og67c")
+
+[node name="muzzle" type="Marker2D" parent="." unique_id=1811877235]
+position = Vector2(1, -8)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=781923342]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=738548866]
+shape = SubResource("CircleShape2D_gp1hk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1690997453]
+shape = SubResource("CircleShape2D_gp1hk")
